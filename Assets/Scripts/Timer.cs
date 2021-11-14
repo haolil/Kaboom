@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     float Sec;
 
     bool Start_Timer = true;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour
         Seconds = GameObject.Find("Seconds").GetComponent<Text>();
         Min = Base_Min;
         Sec = Base_Sec;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
