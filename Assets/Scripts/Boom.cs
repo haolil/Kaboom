@@ -12,6 +12,9 @@ public class Boom : MonoBehaviour
 
     bool Detonated = false;
 
+    [SerializeField]
+    GameObject Flash_Prefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,22 +24,14 @@ public class Boom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Detonated == true)
-        {
-            Distroy();
-        }
+
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        GameObject Flash = Instantiate(Flash_Prefab, transform.position, transform.rotation);
         Detonate();
-        Detonated = true;
-    }
-
-    IEnumerator Distroy()
-    {
         Destroy(gameObject);
-        yield return new WaitForSeconds(1f);
     }
 
     void Detonate()
@@ -48,6 +43,8 @@ public class Boom : MonoBehaviour
             if (Obj.gameObject.tag == "Player")
             {
                 Vector2 dir = Obj.transform.position - transform.position;
+                Obj.transform.parent = null;
+                Obj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 Obj.GetComponent<Rigidbody2D>().AddForce(dir * Force, ForceMode2D.Impulse);
             }
         }

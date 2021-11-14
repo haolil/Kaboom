@@ -45,12 +45,14 @@ public class Stick : MonoBehaviour
     IEnumerator stick()
     {
         stickable = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
     }
 
     void isStuck()
     {
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        gameObject.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        gameObject.transform.GetComponent<Rigidbody2D>().angularVelocity = 0;
     }
 
     void notStuck()
