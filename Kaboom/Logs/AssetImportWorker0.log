@@ -93,3 +93,24 @@ Received Import Request.
 Start importing Assets/Prefabs/Buzzsaw.prefab using Guid(56362bf285859cc4f860f2cb913e89de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fb17c717439ca448003132167f3518a') in 0.021993 seconds
   Import took 0.026038 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003997 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.965 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.41 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2088 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 96.2 MB.
+System memory in use after: 96.2 MB.
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2541.
+Total: 2.458700 ms (FindLiveObjects: 0.289100 ms CreateObjectMapping: 0.085000 ms MarkObjects: 1.904200 ms  DeleteObjects: 0.179200 ms)
+
