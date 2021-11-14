@@ -741,6 +741,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1693393793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693393794}
+  m_Layer: 0
+  m_Name: Projectile_Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693393794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693393793}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.04, z: 0}
+  m_LocalScale: {x: 4.002241, y: 4.002241, z: 4.002241}
+  m_Children: []
+  m_Father: {fileID: 1727755525}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727755524
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +783,7 @@ GameObject:
   - component: {fileID: 1727755526}
   - component: {fileID: 1727755527}
   - component: {fileID: 1727755528}
+  - component: {fileID: 1727755529}
   m_Layer: 0
   m_Name: Aim
   m_TagString: Player
@@ -770,7 +801,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.21, y: -0.54999995, z: -1}
   m_LocalScale: {x: 0.24986, y: 0.24986, z: 0.24986}
-  m_Children: []
+  m_Children:
+  - {fileID: 1693393794}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -860,6 +892,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 142971024}
   cam: {fileID: 1276166100}
+--- !u!114 &1727755529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727755524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea953831c04d0bc4ab2cbe31ea7922de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawn: {fileID: 1693393794}
+  Bomb_Prefab: {fileID: 2515661413734313646, guid: 9065d96deb12efc40bb802b1b7b774c3, type: 3}
+  Speed: 10
 --- !u!1 &1881461496
 GameObject:
   m_ObjectHideFlags: 0

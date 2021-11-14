@@ -36,23 +36,23 @@ public class Wind : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Push");
             Player.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             rb.AddForce(transform.up * Air_Speed, ForceMode2D.Force);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Stay");
-        rb.AddForce(transform.up * Air_Speed, ForceMode2D.Force);
+        if (other.gameObject.tag == "Player")
+        {
+            rb.AddForce(transform.up * Air_Speed, ForceMode2D.Force);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("No Push");
             Player.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
     }
