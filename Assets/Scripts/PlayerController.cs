@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     public float jumpForce;
     public bool isGrounded;
+    public bool isMoving;
     public int jumpCount;
     public int airJumpLimit;
     Vector2 lookDirection;
@@ -47,10 +48,25 @@ public class PlayerController : MonoBehaviour
         TrackMouse();
         SpawnRocket();
         
-       
-        if(Input.GetKeyDown("q"))
+        if (isMoving == false)
         {
-            HealthDecrease();
+            anim.Play("Player_Idle");
+        }
+        if (isMoving == true)
+        {
+            anim.Play("Player_Run");
+        }
+        if (xMovement < 0)
+        {
+           
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        else if (xMovement > 0)
+        {
+            
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+
         }
     }
 
@@ -59,7 +75,15 @@ public class PlayerController : MonoBehaviour
     public void HorizontalMovement()
     {
         xMovement = Input.GetAxis("Horizontal") * movementSpeed;
-
+        
+        if(xMovement == null)
+        {
+            isMoving = false;
+        }
+        else
+        {
+            isMoving = true;
+        }
         player.position += new Vector3(xMovement, 0, 0) * Time.deltaTime;
     }
 
@@ -95,6 +119,7 @@ public class PlayerController : MonoBehaviour
             health -= takenDamage;
             print(health);
             takenDamage = 0;
+            Debug.Log("OUCH!");
         }else if(takenDamage > health)
         {
             health = 0;
@@ -114,7 +139,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            anim.Play("Player_Shoot");
             GameObject rocketClone = Instantiate(rocket);
             rocketClone.transform.position = firepoint.position;
             rocketClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
