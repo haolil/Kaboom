@@ -56,12 +56,19 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Screen_Next.cs" />
+    <Compile Include="Assets\Scripts\Grounded.cs" />
+    <Compile Include="Assets\Scripts\Shoot_Bomb.cs" />
     <Compile Include="Assets\Scripts\Buzzsaw.cs" />
     <Compile Include="Assets\Scripts\Stick.cs" />
+    <Compile Include="Assets\Scripts\PlayerRocket.cs" />
     <Compile Include="Assets\Scripts\Wind.cs" />
     <Compile Include="Assets\Scripts\Spiked.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\Scripts\Shoot_Bomb.cs" />
+    <Compile Include="Assets\Scripts\JumpReplenish.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Bomb_Throw.cs" />
+    <Compile Include="Assets\Scripts\Boom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
