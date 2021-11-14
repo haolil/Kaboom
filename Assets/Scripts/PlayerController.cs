@@ -20,10 +20,13 @@ public class PlayerController : MonoBehaviour
     Vector2 lookDirection;
     float lookAngle;
     float xMovement;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+
         if(this.transform.GetComponent<PlayerController>() && this.transform.GetComponent<Rigidbody2D>())
         {
             player = this.transform;
@@ -43,7 +46,15 @@ public class PlayerController : MonoBehaviour
         PlayerDeath();
         TrackMouse();
         SpawnRocket();
+        
+       
+        if(Input.GetKeyDown("q"))
+        {
+            HealthDecrease();
+        }
     }
+
+    
 
     public void HorizontalMovement()
     {
@@ -56,11 +67,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            anim.Play("Player_Jump");
             player.GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpForce;
             jumpCount--;
         }
 
     }
+
 
     public void JumpCheck()
     {
@@ -68,14 +81,17 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        
 
-            
     }
+
+    
 
     public void HealthDecrease()
     {
-        if (takenDamage > 0 && health != 0)
+        if (takenDamage > 0 && health != 0 )
         {
+            anim.Play("Player_Hurt");
             health -= takenDamage;
             print(health);
             takenDamage = 0;
@@ -98,6 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            anim.Play("Player_Shoot");
             GameObject rocketClone = Instantiate(rocket);
             rocketClone.transform.position = firepoint.position;
             rocketClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
