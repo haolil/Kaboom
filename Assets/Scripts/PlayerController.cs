@@ -40,7 +40,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HorizontalMovement();
+        if(transform.GetComponent<Stick>().stickable == true)
+        {
+            HorizontalMovement();
+        }
         JumpCheck();
         HealthDecrease();
         PlayerDeath();
