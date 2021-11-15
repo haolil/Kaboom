@@ -7,6 +7,9 @@ public class Stick : MonoBehaviour
     Rigidbody2D rb;
 
     public bool stickable = true;
+    public bool nomove = false;
+
+    int Damage = 3;
 
     [SerializeField]
     float height;
@@ -50,6 +53,8 @@ public class Stick : MonoBehaviour
 
     void isStuck()
     {
+        gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().health - Damage;
+        nomove = true;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameObject.transform.GetComponent<Rigidbody2D>().angularVelocity = 0;
@@ -57,6 +62,7 @@ public class Stick : MonoBehaviour
 
     void notStuck()
     {
+        nomove = false;
         stickable = false;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         transform.parent = null;

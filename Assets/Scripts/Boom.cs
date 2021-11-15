@@ -15,6 +15,8 @@ public class Boom : MonoBehaviour
     [SerializeField]
     GameObject Flash_Prefab;
 
+    int Damage = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public class Boom : MonoBehaviour
             if (Obj.gameObject.tag == "Player")
             {
                 Vector2 dir = Obj.transform.position - transform.position;
+                Obj.GetComponent<Health>().health = Obj.GetComponent<Health>().health - Damage;
                 Obj.transform.parent = null;
                 Obj.transform.rotation = Quaternion.identity;
                 Obj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;

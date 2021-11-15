@@ -40,8 +40,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.GetComponent<Stick>().stickable == true)
+        if (transform.GetComponent<Stick>().nomove == true)
         {
+            movementSpeed = 0;
+        }
+        else
+        {
+            movementSpeed = 3;
             HorizontalMovement();
         }
         JumpCheck();
@@ -49,7 +54,7 @@ public class PlayerController : MonoBehaviour
         PlayerDeath();
         //TrackMouse();
         //SpawnRocket();
-        
+
         if (isMoving == false)
         {
             anim.Play("Player_Idle");
@@ -60,24 +65,24 @@ public class PlayerController : MonoBehaviour
         }
         if (xMovement < 0)
         {
-           
+
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
         else if (xMovement > 0)
         {
-            
+
             transform.localRotation = Quaternion.Euler(0, 0, 0);
 
         }
     }
 
-    
+
 
     public void HorizontalMovement()
     {
         xMovement = Input.GetAxis("Horizontal") * movementSpeed;
-        
+
         if(xMovement == null)
         {
             isMoving = false;
@@ -107,11 +112,11 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-        
+
 
     }
 
-    
+
 
     public void HealthDecrease()
     {
