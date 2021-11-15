@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     public Transform player;
     public GameObject rocket;
     public float rocketSpeed;
-    public Transform firepoint;
-    public Transform rotatepoint;
+    //public Transform firepoint;
+    //public Transform rotatepoint;
     public float health;
     public float takenDamage;
     public float movementSpeed;
@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
         if(this.transform.GetComponent<PlayerController>() && this.transform.GetComponent<Rigidbody2D>())
         {
             player = this.transform;
-            rotatepoint = player.GetChild(0);
-            firepoint = rotatepoint.GetChild(0);
+            //rotatepoint = player.GetChild(0);
+            //firepoint = rotatepoint.GetChild(0);
 
             health = 100;
         }
@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
         JumpCheck();
         HealthDecrease();
         PlayerDeath();
-        TrackMouse();
-        SpawnRocket();
+        //TrackMouse();
+        //SpawnRocket();
         
         if (isMoving == false)
         {
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SpawnRocket()
+    /*public void SpawnRocket()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -143,14 +143,14 @@ public class PlayerController : MonoBehaviour
             rocketClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
             rocketClone.GetComponent<Rigidbody2D>().velocity = firepoint.right * rocketSpeed;
         }
-    }
+    }*/
 
-    public void TrackMouse()
+    /*public void TrackMouse()
     {
         lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - rotatepoint.position;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         rotatepoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-    }
+    }*/
 
 }
