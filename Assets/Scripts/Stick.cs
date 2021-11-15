@@ -46,6 +46,16 @@ public class Stick : MonoBehaviour
             isStuck();
         }
     }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (stickable == false && 
+            other.gameObject.tag == "Spike" ||
+            other.gameObject.tag == "Saw")
+        {
+            notStuck();
+        }
+    }
 
     IEnumerator stick()
     {
