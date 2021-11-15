@@ -8,9 +8,12 @@ public class JumpReplenish : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.rigidbody.tag == "Ground" && collision.relativeVelocity.y >= 0f)
+        if (collision.rigidbody.tag == "Ground" || collision.rigidbody.tag == "Spike" || collision.rigidbody.tag == "Saw")
         {
-            transform.GetComponent<PlayerController>().jumpCount = transform.GetComponent<PlayerController>().airJumpLimit + 1;
+            if(collision.relativeVelocity.y >= 0f)
+            {
+                transform.GetComponent<PlayerController>().jumpCount = transform.GetComponent<PlayerController>().airJumpLimit + 1;
+            }
         }
     }
 }

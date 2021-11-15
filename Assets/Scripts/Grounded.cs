@@ -18,7 +18,7 @@ public class Grounded : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Ground")
+        if (collision.tag == "Ground" || collision.tag == "Spike" || collision.tag == "Saw")
         {
             player.GetComponent<PlayerController>().isGrounded = true;
         }
@@ -26,7 +26,7 @@ public class Grounded : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Ground")
+        if (collision.tag == "Ground" || collision.tag == "Spike" || collision.tag == "Saw")
         {
             player.GetComponent<PlayerController>().isGrounded = false;
         }
