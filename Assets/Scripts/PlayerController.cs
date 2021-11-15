@@ -40,7 +40,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HorizontalMovement();
+        if (transform.GetComponent<Stick>().nomove == true)
+        {
+            movementSpeed = 0;
+        }
+        else
+        {
+            movementSpeed = 3;
+            HorizontalMovement();
+        }
         JumpCheck();
         HealthDecrease();
         PlayerDeath();
