@@ -40,7 +40,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (transform.GetComponent<Stick>().nomove == true)
+
         {
             movementSpeed = 0;
         }
