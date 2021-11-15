@@ -21,27 +21,7 @@ public class Wind : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    transform.Translate(-.5f, 0, 0);
-        //}
 
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    transform.Translate(.5f, 0, 0);
-        //}
-=======
-        if (Input.GetKey(KeyCode.A))
-        {
-        //    transform.Translate(-.5f, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-        //    transform.Translate(.5f, 0, 0);
-        }
->>>>>>> Stashed changes
     }
 
     private void OnTriggerEnter2D(Collider2D other)
