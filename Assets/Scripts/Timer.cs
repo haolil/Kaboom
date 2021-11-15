@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -31,6 +32,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Min <= 0 && Sec <= 0)
+        {
+            Level_Reset();
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             Reset_Timer();
@@ -70,5 +76,10 @@ public class Timer : MonoBehaviour
         Sec = Base_Sec;
 
         Start_Timer = true;
+    }
+
+    void Level_Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

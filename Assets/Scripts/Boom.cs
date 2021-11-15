@@ -44,6 +44,7 @@ public class Boom : MonoBehaviour
             {
                 Vector2 dir = Obj.transform.position - transform.position;
                 Obj.transform.parent = null;
+                Obj.transform.rotation = Quaternion.identity;
                 Obj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 Obj.GetComponent<Rigidbody2D>().AddForce(dir * Force, ForceMode2D.Impulse);
             }

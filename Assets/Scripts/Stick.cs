@@ -60,6 +60,7 @@ public class Stick : MonoBehaviour
         stickable = false;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         transform.parent = null;
+        transform.rotation = Quaternion.identity;
         rb.AddForce(transform.up * height, ForceMode2D.Impulse);
     }
 }

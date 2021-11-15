@@ -32,6 +32,6 @@ public class Bomb_Throw : MonoBehaviour
     {
         GameObject Bomb = Instantiate(Bomb_Prefab, Spawn.position, Bomb_Prefab.transform.rotation);
         Rigidbody2D rb = Bomb.GetComponent<Rigidbody2D>();
-        rb.AddForce(Spawn.up * Speed, ForceMode2D.Impulse);
+        rb.AddForce(Spawn.right * Speed, ForceMode2D.Impulse);
     }
 }

@@ -27,7 +27,7 @@ public class Shoot_Bomb : MonoBehaviour
         Mouse_Pos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 AimDir = Mouse_Pos - rb.position;
-        float Angle = Mathf.Atan2(AimDir.y, AimDir.x) * Mathf.Rad2Deg - 90f;
+        float Angle = Mathf.Atan2(AimDir.y, AimDir.x) * Mathf.Rad2Deg;
 
         rb.rotation = Angle;
     }
